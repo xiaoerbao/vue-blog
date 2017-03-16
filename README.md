@@ -2,6 +2,12 @@
 
 > A Vue.js Blog project
 
+## Preview image
+
+ ![image](https://github.com/xiaoerbao/vue-blog/blob/master/static/index.png)
+
+ ![image](https://github.com/xiaoerbao/vue-blog/blob/master/static/detail.png)
+
 ## Build Setup
 
 ``` bash
