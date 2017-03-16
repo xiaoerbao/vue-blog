@@ -1,0 +1,85 @@
+html,body,#app{
+    height : 100%;
+}
+.full-height{
+    height : 100%;
+}
+
+.margin-top-2rem{
+    margin-top : 2rem;
+}
+
+.font-gray{
+    color : #666666;
+}
+
+.bg-color-blue{
+    background : #66ccff;
+}
+
+.text-center{
+    text-align : center;
+}
+
+.left{
+    position : relative;
+}
+.left .title{
+    text-align : center;
+    font-weight : bold;
+    margin-top : 20%;
+    display : block;
+}
+.left .description{
+    margin-top : 3rem;
+    font-size : 1.6rem;
+    font-color : #999;
+    text-align : center;
+}
+.left .society-account{
+    margin-top : 3rem;
+    text-align : center;
+}
+.left .search-and-catalog{
+    margin-top : 3rem;
+}
+.left .counts{
+    margin-top : 3rem;
+}
+
+.count-panel{
+    text-align : center;
+}
+.count-panel .views,.blogs{
+    text-align : left;
+    display : inline-block;
+    padding:0.7rem;
+}
+.count-panel .number{
+    font-size : 2rem;
+    font-weight : bold;
+}
+
+
+.article-list,.article-detail{
+    height : 100%;
+    overflow-y : auto;
+}
+.article-detail .article-foot{
+    height : 6rem;
+    line-height : 6rem;
+}
+.article-detail .article-foot  .article-catalog,.article-copyrigh{
+    position : relative;
+    top : 2rem;
+}
+.article-detail .article-content{
+    min-height : 20rem;
+    font-size : 1.6rem;
+    line-height : 3rem;
+    text-indent : 3.2rem;
+}
+
+.footer{
+    min-height : 4rem;
+}
