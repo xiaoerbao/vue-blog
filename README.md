@@ -1,6 +1,6 @@
-# sell
+# Vue-blog
 
-> A Vue.js project
+> A Vue.js Blog project
 
 ## Build Setup
 
