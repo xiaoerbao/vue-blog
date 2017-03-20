@@ -13,6 +13,11 @@ export default new Router({
       component: Index
     },
     {
+      path: '/list/:catalog',
+      name: 'List',
+      component: Index
+    },
+    {
       path: '/detail/:id',
       name: 'Detail',
       component: Detail

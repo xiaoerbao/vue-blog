@@ -8,6 +8,16 @@ html,body,#app{
 .margin-top-2rem{
     margin-top : 2rem;
 }
+.margin-top-4rem{
+    margin-top : 4rem;
+}
+.padding-top-4rem{
+    padding-top : 4rem;
+}
+
+.cat-cur {
+    background : #cccccc !important;
+}
 
 .font-gray{
     color : #666666;

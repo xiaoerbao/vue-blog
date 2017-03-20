@@ -11,13 +11,13 @@
         </div>
 
         <div class="counts">
-            <Count></Count>
+            <Count v-bind:views="sum" v-bind:blogs="count"></Count>
         </div>
 
         <div class="search-and-catalog">
             <Search></Search>
             <br>
-            <Catalog></Catalog>
+            <Catalog v-bind:catalog="catalog"></Catalog>
         </div>
     </div>
 </template>
@@ -32,13 +32,38 @@
           msg: 'Left',
           blogName: '木棉博客',
           description: '代码狗',
-          weiboUrl: 'http://weibo.com/xiaoqb'
+          weiboUrl: 'http://weibo.com/xiaoqb',
+          count: 0,
+          sum: 0,
+          catalog: []
         }
       },
       components: {
         Search,
         Catalog,
         Count
+      },
+      mounted () {
+        // siteinfo
+        this.getData()
+      },
+      methods: {
+        getData () {
+          this.$http.jsonp(this.serverHost + '/api/site')
+                  .then(
+                  function (data) {
+                      // success
+                    if (data.body.status === 1) {
+                      this.count = data.body.artCount
+                      this.sum = data.body.hitSum.pop().sum
+                      this.catalog = data.body.tags
+                    }
+                  },
+                  function (err) {
+                    console.log('error', err)
+                  }
+          )
+        }
       }
     }
 </script>

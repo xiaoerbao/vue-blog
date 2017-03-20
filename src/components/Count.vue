@@ -11,11 +11,6 @@
 
 <script>
     export default {
-      data () {
-        return {
-          views: 108,
-          blogs: 52
-        }
-      }
+      props: ['views', 'blogs']
     }
 </script>

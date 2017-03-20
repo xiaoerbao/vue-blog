@@ -3,16 +3,16 @@
         <div class="col-md-8 col-sm-8 col-lg-8">
             <h2 class="article-title text-center">{{info.title}}</h2>
             <div class="article-info text-center font-gray margin-top-2rem">
-                <span class="article-date"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> {{info.date}} &nbsp;</span>
-                <span class="article-views"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> {{info.views}} &nbsp;</span>
+                <span class="article-date"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> {{info.create_time | time}} &nbsp;</span>
+                <span class="article-views"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> {{info.hits}} &nbsp;</span>
             </div>
 
-            <div class="article-content margin-top-2rem">
-                {{info.content}}
+            <div class="article-content margin-top-2rem" v-html="info.content">
+
             </div>
 
             <div class="article-foot font-gray">
-                <span class="article-catalog"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> {{info.catalog}} &nbsp;</span>
+                <span class="article-catalog"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> {{info.catname}} &nbsp;</span>
                 <span class="article-copyrigh pull-right">&copy;本文作者版权所有。</span>
                 <hr>
             </div>
@@ -21,6 +21,7 @@
 </template>
 
 <script>
+import '@/assets/editor/css/editormd.min2.css'
 export default {
   props: ['artid'],
   data () {
@@ -32,14 +33,29 @@ export default {
     getData (id) {
       console.log(id)
       return {
-        id: id,
+        key: id,
         title: 'Test Article Title Just In Here',
-        date: '2017-03-16',
-        views: 3160,
-        catalog: '其他',
-        content: '图片来自网络 “很浅”微信公众号：henqian001 那个，有一天“很浅”派阿三去买水果，然后他买来了一个菠萝，“很浅”高兴地说：“我最爱吃菠萝了！”阿三马上反驳道：“这个是凤梨，不是菠萝。” “很浅”表示，自己已经活了二十几年，怎么可能不知道凤梨就是菠萝呢。于是阿三和“很浅”争论起...'
+        create_time: '0',
+        hits: 0,
+        catname: '其他',
+        content: ''
       }
     }
+  },
+  mounted () {
+    // a
+    this.$http.jsonp(this.serverHost + '/api/detail?key=' + this.artid)
+            .then(
+              function (data) {
+                if (data.body.status === 1) {
+                  console.log(data)
+                  this.info = data.body.data
+                }
+              },
+              function (err) {
+                console.log('error', err)
+              }
+            )
   }
 }
 </script>

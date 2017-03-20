@@ -17,6 +17,18 @@ export default {
     return {
       articleId: this.$route.params.id
     }
+  },
+  mounted () {
+    var key = this.$route.params.id ? this.$route.params.id : ''
+    this.$http.jsonp(this.serverHost + '/api/click?key=' + key)
+            .then(
+              function (data) {
+                console.log(data)
+              },
+              function (err) {
+                console.log('error', err)
+              }
+            )
   }
 }
 </script>
