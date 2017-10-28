@@ -1,9 +1,9 @@
 <template>
     <div class="search-panel">
         <div class="input-group">
-            <input type="text" class="form-control input" placeholder="搜索博客">
+            <input type="text" class="form-control input" v-model="keyword" placeholder="搜索博客">
             <span class="input-group-btn">
-                <button class="btn btn-primary" type="button">Go!</button>
+                <router-link v-bind:to="{ name: 'Detail', params: { id: keyword }}"><button class="btn btn-primary" type="button">Go!</button></router-link>
             </span>
         </div><!-- /input-group -->
     </div>
@@ -11,6 +11,11 @@
 
 <script>
     export default {
-      name: 'Search'
+      name: 'Search',
+      data: function () {
+        return {
+          keyword: ''
+        }
+      }
     }
 </script>
